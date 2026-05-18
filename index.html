@@ -1,0 +1,589 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vantia — Software for European SMBs</title>
+  <meta name="description" content="Vantia is a software studio that ships focused SaaS products for European SMBs. Tools your team can adopt in days, not quarters.">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Vantia — Software for European SMBs">
+  <meta property="og:description" content="A software studio that ships focused SaaS products for European small businesses. Works in 10 minutes. No onboarding call required.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://vantia.pro">
+  <meta property="og:image" content="https://vantia.pro/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Vantia — Software for European SMBs">
+  <meta name="twitter:description" content="A software studio that ships focused SaaS products for European small businesses. Works in 10 minutes.">
+  <meta name="twitter:image" content="https://vantia.pro/og-image.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+  <style>
+    /* === Design tokens — Vantia C1 locked (2026-05-18) === */
+    :root {
+      /* Brand (decorative, signature) */
+      --brand:          #a9d13c;
+      --brand-on:       #061b31;
+
+      /* Functional accent (CTA, links, focus) */
+      --accent:         #5a9216;
+      --accent-on:      #ffffff;
+      --accent-hover:   #4a7d12;
+      --accent-active:  #3a6210;
+      --accent-soft:    #eaf4d0;
+
+      /* Status */
+      --success:        #0d8a78;
+      --warn:           #b6701a;
+      --danger:         #d92660;
+
+      /* Neutrals (Stripe-warm) */
+      --bg:             #ffffff;
+      --surface:        #ffffff;
+      --surface-warm:   #f6f9fc;
+      --fg:             #061b31;
+      --fg-2:           #273951;
+      --muted:          #64748d;
+      --meta:           #64748d;
+      --border:         #e5edf5;
+
+      /* Typography */
+      --font-display:   "sohne-var","Söhne","Sohne","SF Pro Display",-apple-system,BlinkMacSystemFont,system-ui,"Helvetica Neue",Arial,sans-serif;
+      --font-body:      "sohne-var","Söhne","Sohne","SF Pro Display",-apple-system,BlinkMacSystemFont,system-ui,"Helvetica Neue",Arial,sans-serif;
+      --font-mono:      "SourceCodePro","Source Code Pro",ui-monospace,"SF Mono","JetBrains Mono",Menlo,Monaco,Consolas,monospace;
+
+      /* Type scale */
+      --text-xs:   12px;
+      --text-sm:   14px;
+      --text-base: 16px;
+      --text-lg:   18px;
+      --text-xl:   22px;
+      --text-2xl:  32px;
+      --text-3xl:  48px;
+      --leading-body:  1.40;
+      --leading-tight: 1.10;
+      --tracking-display: -0.02em;
+
+      /* Spacing */
+      --space-1:   4px;
+      --space-2:   8px;
+      --space-3:  12px;
+      --space-4:  16px;
+      --space-5:  20px;
+      --space-6:  24px;
+      --space-8:  32px;
+      --space-12: 48px;
+
+      /* Radii */
+      --radius-sm: 4px;
+      --radius-md: 6px;
+      --radius-lg: 8px;
+
+      /* Elevation */
+      --elev-raised:  rgba(50,50,93,.25) 0 30px 45px -30px, rgba(0,0,0,.10) 0 18px 36px -18px;
+      --focus-ring:   0 0 0 2px var(--accent), 0 0 0 5px color-mix(in oklab,var(--accent),transparent 75%);
+
+      /* Motion */
+      --motion-fast:   150ms;
+      --motion-base:   200ms;
+      --ease-standard: cubic-bezier(.2,0,0,1);
+
+      /* Layout */
+      --container-max:            1080px;
+      --container-gutter-desktop: 32px;
+      --container-gutter-tablet:  24px;
+      --container-gutter-phone:   16px;
+    }
+
+    /* === Reset === */
+    *, *::before, *::after { box-sizing: border-box }
+    html, body { margin: 0 }
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      font-weight: 400;
+      line-height: var(--leading-body);
+      font-feature-settings: "ss01";
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    a { color: var(--accent); text-decoration: none }
+    a:hover { text-decoration: underline; text-underline-offset: 3px }
+    a:focus-visible, button:focus-visible {
+      outline: none;
+      box-shadow: var(--focus-ring);
+    }
+
+    /* === Layout === */
+    .container {
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding: 0 var(--container-gutter-desktop);
+    }
+
+    /* === Brand band === */
+    .brand-band {
+      height: 5px;
+      background: linear-gradient(90deg, var(--brand), color-mix(in oklab, var(--brand), white 42%));
+    }
+
+    /* === Navigation === */
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 22px 0;
+    }
+    .wordmark {
+      display: flex;
+      align-items: center;
+      line-height: 1;
+    }
+    .wordmark svg {
+      height: 28px;
+      width: auto;
+    }
+    .nav-contact {
+      font-size: var(--text-sm);
+      color: var(--fg-2);
+    }
+
+    /* === Typography === */
+    h1, h2, h3 {
+      font-family: var(--font-display);
+      font-weight: 300;
+      color: var(--fg);
+      margin: 0;
+      font-feature-settings: "ss01";
+    }
+    h1 {
+      font-size: clamp(38px, 5.6vw, 56px);
+      letter-spacing: -0.025em;
+      line-height: 1.04;
+      max-width: 13ch;
+    }
+    h2 {
+      font-size: var(--text-2xl);
+      letter-spacing: var(--tracking-display);
+      line-height: var(--leading-tight);
+    }
+    h3 {
+      font-size: var(--text-xl);
+      letter-spacing: -0.01em;
+      line-height: 1.12;
+    }
+    p { margin: 0; color: var(--muted) }
+
+    /* === Eyebrow === */
+    .eyebrow {
+      display: inline-block;
+      font-size: var(--text-xs);
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    /* === Buttons (locked: 2px top-border CTA signature) === */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-2);
+      min-height: 40px;
+      padding: 9px 16px;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-display);
+      font-size: var(--text-base);
+      font-weight: 400;
+      font-feature-settings: "ss01";
+      line-height: 1;
+      cursor: pointer;
+      transition:
+        background-color var(--motion-fast) var(--ease-standard),
+        border-color var(--motion-fast) var(--ease-standard),
+        box-shadow var(--motion-fast) var(--ease-standard);
+      text-decoration: none !important;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: var(--accent-on);
+      border-top:    2px solid var(--accent-active);  /* Vantia signature */
+      border-right:  1px solid transparent;
+      border-bottom: 1px solid transparent;
+      border-left:   1px solid transparent;
+    }
+    .btn-primary:hover  { background: var(--accent-hover) }
+    .btn-primary:active { background: var(--accent-active) }
+    .btn-ghost {
+      color: var(--fg-2);
+      border: 1px solid var(--border);
+      background: color-mix(in oklab, var(--brand), transparent 94%);
+    }
+    .btn-ghost:hover {
+      background: color-mix(in oklab, var(--brand), transparent 88%);
+    }
+
+    /* === Hero === */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 72px 0 80px;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 18px -12% auto auto;
+      width: 420px;
+      height: 280px;
+      background: radial-gradient(circle, color-mix(in oklab, var(--brand), transparent 68%), transparent 68%);
+      filter: blur(38px);
+      pointer-events: none;
+    }
+    .hero-grid {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1.04fr 0.96fr;
+      gap: var(--space-12);
+      align-items: end;
+    }
+    .hero-lede {
+      margin-top: var(--space-6);
+      font-size: var(--text-lg);
+      line-height: 1.40;
+      max-width: 52ch;
+      color: var(--muted);
+    }
+    .hero-eyebrow { margin-bottom: var(--space-5) }
+    .hero-actions {
+      display: flex;
+      gap: var(--space-3);
+      margin-top: var(--space-8);
+      flex-wrap: wrap;
+    }
+
+    /* === Studio panel (hero aside) === */
+    .panel {
+      background: var(--surface);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--elev-raised);
+      padding: var(--space-8);
+      border: 1px solid var(--border);
+    }
+    .panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: var(--space-8);
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 2px 8px;
+      border-radius: var(--radius-sm);
+      background: var(--brand);
+      color: var(--brand-on);
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.01em;
+    }
+    .metric {
+      font-feature-settings: "tnum", "ss01";
+      font-size: var(--text-2xl);
+      font-weight: 300;
+      letter-spacing: -0.01em;
+      color: var(--fg);
+    }
+    .metric-note {
+      font-size: var(--text-sm);
+      color: var(--muted);
+      margin-top: var(--space-2);
+      line-height: 1.45;
+    }
+
+    /* === How we work === */
+    .principles {
+      padding: 72px 0;
+      border-top: 1px solid var(--border);
+    }
+    .principles-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-8);
+      margin-top: var(--space-12);
+    }
+    .principle-item h3 {
+      font-size: var(--text-lg);
+      margin-bottom: var(--space-3);
+    }
+    .principle-item p {
+      font-size: var(--text-sm);
+      line-height: 1.55;
+    }
+    .principle-number {
+      font-size: var(--text-xs);
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--brand);
+      margin-bottom: var(--space-3);
+    }
+
+    /* === Products === */
+    .products {
+      padding: 72px 0;
+      border-top: 1px solid var(--border);
+    }
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      gap: var(--space-8);
+      align-items: flex-end;
+      margin-bottom: var(--space-8);
+    }
+    .section-head p { max-width: 44ch }
+    .tile-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-5);
+    }
+    .tile {
+      min-height: 240px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: var(--space-6);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition:
+        box-shadow var(--motion-base) var(--ease-standard),
+        border-color var(--motion-fast) var(--ease-standard),
+        background-color var(--motion-fast) var(--ease-standard);
+    }
+    .tile:hover {
+      border-color: color-mix(in oklab, var(--brand), var(--border) 35%);
+      background: color-mix(in oklab, var(--brand), white 94%);
+      box-shadow: var(--elev-raised);
+    }
+    .tile-mark {
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-sm);
+      background: var(--brand);
+      color: var(--brand-on);
+      display: grid;
+      place-items: center;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .tile h3 { margin-bottom: var(--space-2) }
+    .tile p {
+      font-size: var(--text-sm);
+      margin-top: var(--space-3);
+      line-height: 1.50;
+    }
+    .tile.tile-soon {
+      background: var(--surface-warm);
+    }
+    .tile.tile-soon .tile-mark {
+      background: color-mix(in oklab, var(--brand), white 58%);
+    }
+
+    /* === CTA strip === */
+    .cta-strip {
+      padding: 64px 0;
+      border-top: 1px solid var(--border);
+      background: var(--surface-warm);
+    }
+    .cta-inner {
+      max-width: 560px;
+    }
+    .cta-inner h2 { margin-bottom: var(--space-3) }
+    .cta-inner p {
+      font-size: var(--text-lg);
+      line-height: 1.40;
+      margin-bottom: var(--space-6);
+    }
+
+    /* === Footer === */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 26px 0;
+    }
+    .footer-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-4);
+      font-size: var(--text-sm);
+      color: var(--muted);
+    }
+
+    /* === Responsive === */
+    @media (max-width: 900px) {
+      .container { padding: 0 var(--container-gutter-tablet) }
+      .hero-grid { grid-template-columns: 1fr; align-items: flex-start }
+      .panel { max-width: 480px }
+      .principles-grid { grid-template-columns: 1fr; gap: var(--space-8) }
+      .section-head { display: block }
+      .section-head p { margin-top: var(--space-3) }
+      .tile-grid { grid-template-columns: 1fr 1fr }
+    }
+    @media (max-width: 560px) {
+      .container { padding: 0 var(--container-gutter-phone) }
+      .hero { padding: 48px 0 56px }
+      .hero-actions { flex-direction: column }
+      .btn { width: 100%; justify-content: center }
+      .tile-grid { grid-template-columns: 1fr }
+      .footer-row { flex-direction: column; align-items: flex-start; gap: var(--space-2) }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Brand band -->
+  <div class="brand-band" aria-hidden="true"></div>
+
+  <!-- Navigation -->
+  <header>
+    <div class="container nav">
+      <a class="wordmark" href="/" aria-label="Vantia">
+        <!-- Wordmark light SVG (navy + lime dot) -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 200" role="img" aria-label="vantia.">
+          <g font-family='"sohne-var","Söhne","Sohne","SF Pro Display",-apple-system,BlinkMacSystemFont,system-ui,"Helvetica Neue",Arial,sans-serif'
+             font-weight="400"
+             font-size="120"
+             letter-spacing="-3"
+             dominant-baseline="middle">
+            <text x="50%" y="105" text-anchor="middle">
+              <tspan fill="#061b31">vantia</tspan><tspan dx="-6" fill="#a9d13c">.</tspan>
+            </text>
+          </g>
+        </svg>
+      </a>
+      <a class="nav-contact" href="mailto:hello@vantia.pro">hello@vantia.pro</a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container hero-grid">
+
+        <div>
+          <span class="eyebrow hero-eyebrow">European software studio</span>
+          <h1>Focused tools for European SMBs.</h1>
+          <p class="hero-lede">We build SaaS products for small and mid-market businesses in Europe. Each product targets a specific operational pain. Works in 10 minutes. No onboarding call required.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#products">See our products</a>
+            <a class="btn btn-ghost" href="mailto:hello@vantia.pro">Get in touch</a>
+          </div>
+        </div>
+
+        <aside class="panel" aria-label="Vantia studio snapshot">
+          <div class="panel-header">
+            <span class="eyebrow">Portfolio</span>
+            <span class="badge">Small and growing</span>
+          </div>
+          <div class="metric">2 live products</div>
+          <p class="metric-note">We keep each product narrow enough to support properly, localize correctly, and improve from real customer conversations — not roadmap pressure.</p>
+        </aside>
+
+      </div>
+    </section>
+
+    <!-- How we work -->
+    <section class="principles" id="how-we-work">
+      <div class="container">
+        <div>
+          <span class="eyebrow">How we work</span>
+          <h2 style="margin-top: 12px; max-width: 24ch">Small studio. Deliberate choices.</h2>
+        </div>
+        <div class="principles-grid">
+          <div class="principle-item">
+            <div class="principle-number">01</div>
+            <h3>European-native</h3>
+            <p>Pricing in EUR. GDPR baked in. UI in the operator's language. Not a US product with a translated interface — built for the way European SMBs actually work.</p>
+          </div>
+          <div class="principle-item">
+            <div class="principle-number">02</div>
+            <h3>Adopt in days, not quarters</h3>
+            <p>No implementation budget. No onboarding call. You connect your account, invite your team, and the product is running. If it doesn't fit in 10 minutes, we failed.</p>
+          </div>
+          <div class="principle-item">
+            <div class="principle-number">03</div>
+            <h3>Focused by design</h3>
+            <p>Each product does one thing well. We don't add features because someone asks — we add them when they make the core job undeniably easier. Quality over surface area.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Products -->
+    <section class="products" id="products">
+      <div class="container">
+        <div class="section-head">
+          <h2>Focused tools, built one at a time.</h2>
+          <p>We choose operational problems where small teams need fewer meetings, clearer records, and software that works with their existing flow.</p>
+        </div>
+        <div class="tile-grid">
+
+          <article class="tile">
+            <div class="tile-mark">Ri</div>
+            <div>
+              <h3>Ritmo</h3>
+              <p>Quotes and follow-ups for SMB sales teams. Send a professional quote in under two minutes. Follow up without losing track.</p>
+            </div>
+          </article>
+
+          <article class="tile">
+            <div class="tile-mark">Du</div>
+            <div>
+              <h3>Duedilis</h3>
+              <p>Document management for operations teams doing due diligence. Collect, review, and share documents without the back-and-forth.</p>
+            </div>
+          </article>
+
+          <article class="tile tile-soon">
+            <div class="tile-mark">+</div>
+            <div>
+              <h3>More coming</h3>
+              <p>We add products when we find a problem we can solve properly — and only then. We don't enter categories we can't support well.</p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA strip -->
+    <section class="cta-strip">
+      <div class="container">
+        <div class="cta-inner">
+          <h2>Questions? We answer email.</h2>
+          <p>No sales calls, no demo request forms. Write to us directly and you get a real answer.</p>
+          <a class="btn btn-primary" href="mailto:hello@vantia.pro">hello@vantia.pro</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-row">
+      <span>© 2026 Vantia.</span>
+      <a href="mailto:hello@vantia.pro">hello@vantia.pro</a>
+    </div>
+  </footer>
+
+</body>
+</html>
