@@ -1,12 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="v. (Vantia favicon mark)">
-  <title>Vantia favicon mark</title>
+  <title>Vantia favicon mark — single 'v' + lime circle (β 1.2× derivative for ≤32px)</title>
   <rect x="0" y="0" width="64" height="64" rx="10" fill="#061b31"/>
   <g font-family='"sohne-var","Söhne","Sohne","SF Pro Display",-apple-system,BlinkMacSystemFont,system-ui,"Helvetica Neue",Arial,sans-serif'
      font-weight="500"
-     font-size="42"
-     dominant-baseline="middle">
-    <text x="32" y="40" text-anchor="middle">
-      <tspan fill="#ffffff">v</tspan><tspan dx="-2" fill="#a9d13c">.</tspan>
-    </text>
+     font-size="42">
+    <text x="26" y="46" text-anchor="middle" fill="#ffffff">v</text>
+    <circle cx="44" cy="42" r="4" fill="#a9d13c"/>
   </g>
 </svg>
