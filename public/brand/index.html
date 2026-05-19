@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vantia — Brand Kit</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <style>
+    :root {
+      --brand:#a9d13c; --brand-on:#061b31;
+      --accent:#5a9216; --accent-on:#fff; --accent-soft:#eaf4d0;
+      --bg:#fff; --surface-warm:#f6f9fc;
+      --fg:#061b31; --fg-2:#273951; --muted:#64748d; --border:#e5edf5;
+      --font:"sohne-var","Söhne","Sohne","SF Pro Display",-apple-system,BlinkMacSystemFont,system-ui,"Helvetica Neue",Arial,sans-serif;
+      --mono:"SourceCodePro","Source Code Pro",ui-monospace,Menlo,monospace;
+      --radius:6px;
+    }
+    *,*::before,*::after{box-sizing:border-box}
+    html,body{margin:0}
+    body{background:var(--bg);color:var(--fg);font-family:var(--font);font-size:16px;line-height:1.4;-webkit-font-smoothing:antialiased}
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline;text-underline-offset:3px}
+    .brand-band{height:5px;background:linear-gradient(90deg,var(--brand),color-mix(in oklab,var(--brand),white 42%))}
+    .wrap{max-width:880px;margin:0 auto;padding:0 32px}
+    nav{display:flex;align-items:center;justify-content:space-between;padding:20px 0;border-bottom:1px solid var(--border)}
+    nav a{font-size:14px;color:var(--fg-2)}
+    .wm{display:flex;align-items:center}
+    .wm svg{height:24px;width:auto}
+    h1{font-size:28px;font-weight:300;letter-spacing:-0.02em;margin:32px 0 4px}
+    .sub{color:var(--muted);font-size:15px;margin:0 0 40px}
+    h2{font-size:13px;font-weight:400;letter-spacing:0.07em;text-transform:uppercase;color:var(--accent);margin:32px 0 12px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin-bottom:8px}
+    .card{border:1px solid var(--border);border-radius:var(--radius);padding:16px;display:flex;flex-direction:column;gap:10px;background:var(--bg)}
+    .card:hover{background:color-mix(in oklab,var(--brand),white 94%);border-color:color-mix(in oklab,var(--brand),var(--border) 35%)}
+    .preview{background:var(--surface-warm);border-radius:4px;display:flex;align-items:center;justify-content:center;padding:12px;height:72px}
+    .preview.dark{background:#061b31}
+    .preview img{max-height:48px;max-width:100%;object-fit:contain}
+    .fname{font-family:var(--mono);font-size:11px;color:var(--muted);word-break:break-all}
+    .dl{display:inline-flex;align-items:center;gap:5px;font-size:13px;font-weight:400;color:var(--accent);margin-top:auto}
+    .pill{display:inline-block;font-size:11px;letter-spacing:0.04em;background:var(--accent-soft);color:var(--accent);border-radius:4px;padding:1px 6px;font-family:var(--mono)}
+    .spec-link{display:flex;align-items:center;gap:10px;padding:12px 14px;border:1px solid var(--border);border-radius:var(--radius);font-size:14px}
+    .spec-link:hover{background:var(--surface-warm)}
+    footer{border-top:1px solid var(--border);padding:20px 0;margin-top:48px;font-size:13px;color:var(--muted);display:flex;justify-content:space-between}
+    @media(max-width:560px){.wrap{padding:0 16px}.grid{grid-template-columns:1fr 1fr}footer{flex-direction:column;gap:4px}}
+  </style>
+</head>
+<body>
+<div class="brand-band"></div>
+<header>
+  <div class="wrap">
+    <nav>
+      <a class="wm" href="/" aria-label="Vantia home">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 200" aria-label="vantia.">
+          <g font-family='"sohne-var","Söhne",system-ui,sans-serif' font-weight="400" font-size="120" letter-spacing="-3">
+            <text x="294" y="135" text-anchor="middle" fill="#061b31">vantia</text>
+            <circle cx="478" cy="125" r="7" fill="#a9d13c"/>
+          </g>
+        </svg>
+      </a>
+      <a href="/">← Back to vantia.pro</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <h1>Brand Kit</h1>
+    <p class="sub">SVG masters, PNG renders, and design tokens. All assets are canonical — link directly or download.</p>
+
+    <h2>Wordmarks — SVG masters</h2>
+    <div class="grid">
+      <div class="card">
+        <div class="preview"><img src="wordmark-light.svg" alt="Light wordmark"></div>
+        <span class="fname">wordmark-light.svg</span>
+        <span class="pill">Light surface</span>
+        <a class="dl" href="wordmark-light.svg" download>Download SVG</a>
+      </div>
+      <div class="card">
+        <div class="preview dark"><img src="wordmark-dark.svg" alt="Dark wordmark"></div>
+        <span class="fname">wordmark-dark.svg</span>
+        <span class="pill">Dark surface</span>
+        <a class="dl" href="wordmark-dark.svg" download>Download SVG</a>
+      </div>
+      <div class="card">
+        <div class="preview"><img src="wordmark-mono.svg" alt="Mono wordmark"></div>
+        <span class="fname">wordmark-mono.svg</span>
+        <span class="pill">Mono / 1-colour</span>
+        <a class="dl" href="wordmark-mono.svg" download>Download SVG</a>
+      </div>
+      <div class="card">
+        <div class="preview"><img src="web/favicon-mark.svg" alt="Favicon mark"></div>
+        <span class="fname">web/favicon-mark.svg</span>
+        <span class="pill">Favicon / mark</span>
+        <a class="dl" href="web/favicon-mark.svg" download>Download SVG</a>
+      </div>
+    </div>
+
+    <h2>Web — PNG renders</h2>
+    <div class="grid">
+      <div class="card">
+        <div class="preview"><img src="web/wordmark-light-300x100.png" alt=""></div>
+        <span class="fname">web/wordmark-light-300x100.png</span>
+        <a class="dl" href="web/wordmark-light-300x100.png" download>Download</a>
+      </div>
+      <div class="card">
+        <div class="preview"><img src="web/wordmark-light-200x67.png" alt=""></div>
+        <span class="fname">web/wordmark-light-200x67.png</span>
+        <a class="dl" href="web/wordmark-light-200x67.png" download>Download</a>
+      </div>
+      <div class="card">
+        <div class="preview dark"><img src="web/wordmark-dark-300x100.png" alt=""></div>
+        <span class="fname">web/wordmark-dark-300x100.png</span>
+        <a class="dl" href="web/wordmark-dark-300x100.png" download>Download</a>
+      </div>
+      <div class="card">
+        <div class="preview dark"><img src="web/wordmark-dark-200x67.png" alt=""></div>
+        <span class="fname">web/wordmark-dark-200x67.png</span>
+        <a class="dl" href="web/wordmark-dark-200x67.png" download>Download</a>
+      </div>
+      <div class="card">
+        <div class="preview"><img src="web/favicon-32x32.png" alt=""></div>
+        <span class="fname">web/favicon-32x32.png</span>
+        <a class="dl" href="web/favicon-32x32.png" download>Download</a>
+      </div>
+      <div class="card">
+        <div class="preview"><img src="web/favicon-64x64.png" alt=""></div>
+        <span class="fname">web/favicon-64x64.png</span>
+        <a class="dl" href="web/favicon-64x64.png" download>Download</a>
+      </div>
+      <div class="card">
+        <div class="preview"><img src="web/favicon-192x192.png" alt=""></div>
+        <span class="fname">web/favicon-192x192.png</span>
+        <a class="dl" href="web/favicon-192x192.png" download>Download</a>
+      </div>
+    </div>
+
+    <h2>Email — PNG renders</h2>
+    <div class="grid">
+      <div class="card">
+        <div class="preview"><img src="email/wordmark-light-200x67.png" alt=""></div>
+        <span class="fname">email/wordmark-light-200x67.png</span>
+        <a class="dl" href="email/wordmark-light-200x67.png" download>Download</a>
+      </div>
+      <div class="card">
+        <div class="preview"><img src="email/wordmark-light-400x134.png" alt=""></div>
+        <span class="fname">email/wordmark-light-400x134.png</span>
+        <a class="dl" href="email/wordmark-light-400x134.png" download>Download</a>
+      </div>
+      <div class="card">
+        <div class="preview dark"><img src="email/wordmark-dark-200x67.png" alt=""></div>
+        <span class="fname">email/wordmark-dark-200x67.png</span>
+        <a class="dl" href="email/wordmark-dark-200x67.png" download>Download</a>
+      </div>
+      <div class="card">
+        <div class="preview dark"><img src="email/wordmark-dark-400x134.png" alt=""></div>
+        <span class="fname">email/wordmark-dark-400x134.png</span>
+        <a class="dl" href="email/wordmark-dark-400x134.png" download>Download</a>
+      </div>
+    </div>
+
+    <h2>Documents — PNG renders</h2>
+    <div class="grid">
+      <div class="card">
+        <div class="preview"><img src="documents/wordmark-light-600x200.png" alt=""></div>
+        <span class="fname">documents/wordmark-light-600x200.png</span>
+        <a class="dl" href="documents/wordmark-light-600x200.png" download>Download</a>
+      </div>
+      <div class="card">
+        <div class="preview dark"><img src="documents/wordmark-dark-600x200.png" alt=""></div>
+        <span class="fname">documents/wordmark-dark-600x200.png</span>
+        <a class="dl" href="documents/wordmark-dark-600x200.png" download>Download</a>
+      </div>
+      <div class="card">
+        <div class="preview"><img src="documents/wordmark-mono-300x100.png" alt=""></div>
+        <span class="fname">documents/wordmark-mono-300x100.png</span>
+        <a class="dl" href="documents/wordmark-mono-300x100.png" download>Download</a>
+      </div>
+      <div class="card">
+        <div class="preview"><img src="documents/wordmark-mono-600x200.png" alt=""></div>
+        <span class="fname">documents/wordmark-mono-600x200.png</span>
+        <a class="dl" href="documents/wordmark-mono-600x200.png" download>Download</a>
+      </div>
+      <div class="card">
+        <div class="preview"><img src="documents/wordmark-presentation-250x83.png" alt=""></div>
+        <span class="fname">documents/wordmark-presentation-250x83.png</span>
+        <a class="dl" href="documents/wordmark-presentation-250x83.png" download>Download</a>
+      </div>
+    </div>
+
+    <h2>Social — PNG renders</h2>
+    <div class="grid">
+      <div class="card">
+        <div class="preview"><img src="social/wordmark-light-400x134.png" alt=""></div>
+        <span class="fname">social/wordmark-light-400x134.png</span>
+        <a class="dl" href="social/wordmark-light-400x134.png" download>Download</a>
+      </div>
+      <div class="card">
+        <div class="preview dark"><img src="social/wordmark-dark-400x134.png" alt=""></div>
+        <span class="fname">social/wordmark-dark-400x134.png</span>
+        <a class="dl" href="social/wordmark-dark-400x134.png" download>Download</a>
+      </div>
+    </div>
+
+    <h2>Specs</h2>
+    <a class="spec-link" href="README.md" target="_blank">
+      <span class="pill">MD</span>
+      README.md — Brand kit overview and usage guidelines
+    </a>
+    <br><br>
+    <a class="spec-link" href="tokens-proposal.md" target="_blank">
+      <span class="pill">MD</span>
+      tokens-proposal.md — Design token definitions (colours, type, spacing)
+    </a>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap" style="display:flex;justify-content:space-between;width:100%">
+    <span>© 2026 Vantia.</span>
+    <a href="mailto:hello@vantia.pro">hello@vantia.pro</a>
+  </div>
+</footer>
+
+</body>
+</html>
