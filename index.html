@@ -395,6 +395,27 @@
     .tile.tile-soon .tile-mark {
       background: color-mix(in oklab, var(--brand), white 58%);
     }
+    a.tile-link {
+      text-decoration: none !important;
+      color: inherit;
+      display: contents;
+    }
+    .tile-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: var(--text-sm);
+      font-weight: 400;
+      color: var(--accent);
+      margin-top: var(--space-4);
+    }
+    .tile-cta::after {
+      content: "→";
+      transition: transform var(--motion-fast) var(--ease-standard);
+    }
+    .tile:hover .tile-cta::after {
+      transform: translateX(3px);
+    }
 
     /* === CTA strip === */
     .cta-strip {
@@ -492,7 +513,7 @@
             <span class="eyebrow">Portfolio</span>
             <span class="badge">Small and growing</span>
           </div>
-          <div class="metric">2 live products</div>
+          <div class="metric">4 live products</div>
           <p class="metric-note">We keep each product narrow enough to support properly, localize correctly, and improve from real customer conversations — not roadmap pressure.</p>
         </aside>
 
@@ -534,6 +555,28 @@
           <p>We choose operational problems where small teams need fewer meetings, clearer records, and software that works with their existing flow.</p>
         </div>
         <div class="tile-grid">
+
+          <a class="tile-link" href="https://cprdop.vantia.pro" target="_blank" rel="noopener">
+            <article class="tile">
+              <div class="tile-mark">CP</div>
+              <div>
+                <h3>CPR DoP Generator</h3>
+                <p>Declarations of Performance for construction products under EU Regulation 305/2011. Annex III structured, ready to sign.</p>
+                <span class="tile-cta">cprdop.vantia.pro</span>
+              </div>
+            </article>
+          </a>
+
+          <a class="tile-link" href="https://machinery-doc-lp.vercel.app" target="_blank" rel="noopener">
+            <article class="tile">
+              <div class="tile-mark">MC</div>
+              <div>
+                <h3>Machinery DoC</h3>
+                <p>Declarations of Conformity for machinery under EU Regulation 2023/1230. Structured fields, export-ready PDF.</p>
+                <span class="tile-cta">machinery-doc.vantia.pro</span>
+              </div>
+            </article>
+          </a>
 
           <article class="tile">
             <div class="tile-mark">Ri</div>
